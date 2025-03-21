@@ -10,12 +10,20 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
   children,
 }) => {
   const mergedTheme = mergeTheme(theme);
+  const currency = data.currency || "USD";
 
   const taxAmount =
     data.taxAmount ||
     (data.taxRate && (data.subtotal * data.taxRate) / 100) ||
     0;
   const discountAmount = data.discountAmount || 0;
+
+  const formatCurrency = (amount: number) => {
+    return amount.toLocaleString("en-US", {
+      style: "currency",
+      currency: currency,
+    });
+  };
 
   return (
     <BaseDocument theme={theme}>
@@ -134,16 +142,10 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                     {item.quantity}
                   </td>
                   <td className="border border-gray-300 p-2 text-right">
-                    {item.unitPrice.toLocaleString("en-US", {
-                      style: "currency",
-                      currency: "USD",
-                    })}
+                    {formatCurrency(item.unitPrice)}
                   </td>
                   <td className="border border-gray-300 p-2 text-right">
-                    {item.amount.toLocaleString("en-US", {
-                      style: "currency",
-                      currency: "USD",
-                    })}
+                    {formatCurrency(item.amount)}
                   </td>
                 </tr>
               ))}
@@ -155,36 +157,20 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
         <div className="ml-auto w-64">
           <div className="flex justify-between py-1">
             <span>Subtotal:</span>
-            <span>
-              {data.subtotal.toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
-            </span>
+            <span>{formatCurrency(data.subtotal)}</span>
           </div>
 
           {data.taxRate && (
             <div className="flex justify-between py-1">
               <span>Tax ({data.taxRate}%):</span>
-              <span>
-                {taxAmount.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                })}
-              </span>
+              <span>{formatCurrency(taxAmount)}</span>
             </div>
           )}
 
           {data.discountAmount && (
             <div className="flex justify-between py-1">
               <span>Discount:</span>
-              <span>
-                -
-                {discountAmount.toLocaleString("en-US", {
-                  style: "currency",
-                  currency: "USD",
-                })}
-              </span>
+              <span>-{formatCurrency(discountAmount)}</span>
             </div>
           )}
 
@@ -194,10 +180,7 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
           >
             <span>Total:</span>
             <span style={{ color: mergedTheme.colors.primary }}>
-              {data.total.toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
+              {formatCurrency(data.total)}
             </span>
           </div>
         </div>

@@ -34,6 +34,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     subtotal: 2200,
     taxRate: 10,
     total: 2420,
+    currency: "USD",
   },
 
   withLogo: {
@@ -77,6 +78,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     subtotal: 5500,
     taxRate: 8.5,
     total: 5967.5,
+    currency: "EUR",
   },
 
   withDiscount: {
@@ -120,6 +122,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     taxRate: 9,
     discountAmount: 950,
     total: 9395,
+    currency: "GBP",
   },
 
   withNotes: {
@@ -161,5 +164,6 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
       "## Terms and Conditions\n\n1. Payment is due within 14 days of invoice date.\n2. Late payments are subject to a 1.5% monthly finance charge.\n3. This invoice is payable in USD.",
     paymentDetails:
       "**Bank Transfer:**\nBank: National Bank\nAccount Name: Legal Advisors LLP\nAccount Number: 1234567890\nRouting: 021000021",
+    currency: "USD",
   },
 };

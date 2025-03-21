@@ -32,6 +32,7 @@ export interface InvoiceData {
   notes?: string;
   termsAndConditions?: string;
   paymentDetails?: string;
+  currency?: string;
 }
 
 export interface InvoiceDocumentProps extends BaseDocumentProps {
