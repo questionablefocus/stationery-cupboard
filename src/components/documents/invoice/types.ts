@@ -47,7 +47,6 @@ export interface InvoiceData {
   discountAmount?: number;
   total: number;
   notes?: string;
-  termsAndConditions?: string;
   paymentDetails?: BankTransferDetails;
   currency?: string;
 }

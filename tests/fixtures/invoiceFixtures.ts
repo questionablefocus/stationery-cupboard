@@ -181,8 +181,6 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     total: 5117.13,
     notes:
       "Thank you for your business. We value your trust and confidence in us and sincerely appreciate your loyalty.",
-    termsAndConditions:
-      "## Terms and Conditions\n\n1. Payment is due within 14 days of invoice date.\n2. Late payments are subject to a 1.5% monthly finance charge.\n3. This invoice is payable in USD.",
     paymentDetails: {
       bankName: "National Bank",
       accountName: "Legal Advisors LLP",

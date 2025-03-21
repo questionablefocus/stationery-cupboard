@@ -202,21 +202,6 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
           </div>
         )}
 
-        {data.termsAndConditions && (
-          <div className="mt-4">
-            <h3
-              className="font-semibold mb-2"
-              style={{
-                fontFamily: mergedTheme.fontFamily.heading,
-                fontSize: mergedTheme.fontSize.heading3,
-              }}
-            >
-              Terms and Conditions
-            </h3>
-            <MarkdownRenderer content={data.termsAndConditions} theme={theme} />
-          </div>
-        )}
-
         {data.paymentDetails && (
           <div className="mt-4">
             <h3
