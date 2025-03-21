@@ -132,10 +132,7 @@ const TestPreviewApp: React.FC = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <header className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Stationery Test Preview</h1>
-        <p className="text-gray-600">
-          Preview document components in various configurations
-        </p>
+        <h1 className="text-3xl font-bold mb-2">Stationery Cupboard</h1>
       </header>
 
       <main>
@@ -145,7 +142,7 @@ const TestPreviewApp: React.FC = () => {
           <h2 className="text-xl font-semibold mb-4">
             {selectedFixture ? (
               <>
-                Preview:{" "}
+                Document Preview:{" "}
                 <span className="text-blue-600">{selectedFixture}</span> with
                 theme: <span className="text-blue-600">{selectedTheme}</span>
               </>

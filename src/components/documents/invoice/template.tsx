@@ -36,7 +36,7 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
 
   return (
     <BaseDocument theme={theme}>
-      <div className="flex flex-col space-y-8">
+      <div>
         {/* Header */}
         <div className="flex flex-col md:flex-row print:flex-row justify-between items-start">
           <h2
@@ -72,11 +72,13 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                 <div key={index}>{line}</div>
               ))}
             </div>
-            <p>{data.companyDetails.contactInfo}</p>
+            {data.companyDetails.contactInfo && (
+              <p>{data.companyDetails.contactInfo}</p>
+            )}
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row print:flex-row justify-between mt-12">
+        <div className="flex flex-col md:flex-row print:flex-row justify-between mt-16">
           <div className="mb-8 md:mb-0 print:mb-0">
             <h3 className="text-lg font-semibold text-gray-900">
               {data.clientDetails.name}
