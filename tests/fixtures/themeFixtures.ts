@@ -73,31 +73,6 @@ export const themeFixtures: Record<string, Partial<Theme>> = {
     },
   },
 
-  minimal: {
-    fontFamily: {
-      heading: "Inter, system-ui, sans-serif",
-      body: "Inter, system-ui, sans-serif",
-    },
-    colors: {
-      primary: "#111827",
-      secondary: "#374151",
-      accent: "#6b7280",
-      background: "#ffffff",
-      text: "#111827",
-      muted: "#6b7280",
-      border: "#e5e7eb",
-      success: "#10b981",
-      error: "#ef4444",
-    },
-    fontSize: {
-      heading1: "1.5rem",
-      heading2: "1.25rem",
-      heading3: "1rem",
-      body: "0.875rem",
-      small: "0.75rem",
-    },
-  },
-
   colorful: {
     colors: {
       primary: "#f97316",
