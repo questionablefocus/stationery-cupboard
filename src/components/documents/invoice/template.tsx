@@ -186,41 +186,47 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
           </div>
         </div>
 
-        {/* Notes, Terms and Payment Details */}
-        {data.notes && (
-          <div className="mt-8">
-            <h3
-              className="font-semibold mb-2"
-              style={{
-                fontFamily: mergedTheme.fontFamily.heading,
-                fontSize: mergedTheme.fontSize.heading3,
-              }}
-            >
-              Notes
-            </h3>
-            <MarkdownRenderer content={data.notes} theme={theme} />
-          </div>
-        )}
+        {/* Notes and Payment Details */}
+        <div className="mt-16 flex flex-col md:flex-row print:flex-row justify-between">
+          {data.notes && (
+            <div className="mb-8 md:mb-0 print:mb-0 md:w-1/2 print:w-1/2 pr-4">
+              <h3
+                className="text-sm font-semibold text-gray-900 mb-2"
+                style={{
+                  fontFamily: mergedTheme.fontFamily.heading,
+                  fontSize: mergedTheme.fontSize.heading3,
+                }}
+              >
+                Notes
+              </h3>
+              <p className="text-xs text-gray-600">{data.notes}</p>
+            </div>
+          )}
 
-        {data.paymentDetails && (
-          <div className="mt-4">
-            <h3
-              className="font-semibold mb-2"
-              style={{
-                fontFamily: mergedTheme.fontFamily.heading,
-                fontSize: mergedTheme.fontSize.heading3,
-              }}
+          {data.paymentDetails && (
+            <div
+              className={`${
+                data.notes ? "md:w-1/2 print:w-1/2" : "w-full"
+              } md:text-right print:text-right`}
             >
-              Payment Details
-            </h3>
-            <PaymentDetailsTable
-              paymentDetails={data.paymentDetails}
-              tableHeaderBackground={
-                mergedTheme.documents.table.headerBackground
-              }
-            />
-          </div>
-        )}
+              <h3
+                className="text-sm font-semibold text-gray-900 mb-2"
+                style={{
+                  fontFamily: mergedTheme.fontFamily.heading,
+                  fontSize: mergedTheme.fontSize.heading3,
+                }}
+              >
+                Payment Details
+              </h3>
+              <PaymentDetailsTable
+                paymentDetails={data.paymentDetails}
+                tableHeaderBackground={
+                  mergedTheme.documents.table.headerBackground
+                }
+              />
+            </div>
+          )}
+        </div>
 
         {children}
       </div>

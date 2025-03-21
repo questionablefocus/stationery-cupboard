@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import TestPreviewApp from "./components/TestPreviewApp";
-import "../src/index.css";
+import "./index.css";
 
 const container = document.getElementById("root");
 

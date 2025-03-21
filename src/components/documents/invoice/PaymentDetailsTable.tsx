@@ -30,12 +30,12 @@ export const renderPaymentDetailsTable = ({
     .map(([key]) => key as keyof BankTransferDetails);
 
   return (
-    <table className="w-full border-collapse">
+    <table className="text-xs md:ml-auto print:ml-auto">
       <tbody>
         {availableFields.map((field) => (
           <tr key={field}>
             <td
-              className="border border-gray-300 p-2 font-semibold"
+              className="pl-4 py-1 text-xs"
               style={{
                 backgroundColor: tableHeaderBackground,
                 width: field === "bankName" ? "30%" : undefined,
@@ -43,9 +43,7 @@ export const renderPaymentDetailsTable = ({
             >
               {fieldLabels[field]}
             </td>
-            <td className="border border-gray-300 p-2">
-              {paymentDetails[field]}
-            </td>
+            <td className="pl-4 py-1 text-xs">{paymentDetails[field]}</td>
           </tr>
         ))}
       </tbody>

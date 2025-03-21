@@ -1,6 +1,6 @@
 import React from "react";
 import { Theme, mergeTheme } from "../../themes";
-import { InvoiceData } from "../documents/InvoiceDocument";
+import { InvoiceData } from "../documents/invoice/types";
 
 export interface InvoiceTableProps {
   invoices: InvoiceData[];

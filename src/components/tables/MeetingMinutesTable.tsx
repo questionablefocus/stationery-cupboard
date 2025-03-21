@@ -1,6 +1,6 @@
 import React from "react";
 import { Theme, mergeTheme } from "../../themes";
-import { MeetingMinutesData } from "../documents/MeetingMinutesDocument";
+import { MeetingMinutesData } from "../documents/meeting-minutes/types";
 
 export interface MeetingMinutesTableProps {
   meetings: MeetingMinutesData[];
