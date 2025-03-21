@@ -1,51 +1,8 @@
 import React from "react";
-import { BaseDocument, BaseDocumentProps } from "./BaseDocument";
-import { MarkdownRenderer } from "../../utils";
-import { mergeTheme } from "../../themes";
-
-export interface Participant {
-  name: string;
-  role?: string;
-  organization?: string;
-  email?: string;
-}
-
-export interface Agenda {
-  title: string;
-  description?: string;
-}
-
-export interface ActionItem {
-  id: string;
-  task: string;
-  assignee: string;
-  dueDate?: string;
-  status?: "pending" | "completed" | "in-progress" | "deferred";
-}
-
-export interface MeetingMinutesData {
-  title: string;
-  date: string;
-  startTime: string;
-  endTime: string;
-  location?: string;
-  organizationLogo?: string;
-  organizationName?: string;
-  participants: Participant[];
-  absentees?: Participant[];
-  agendaItems: Agenda[];
-  minutesMarkdown: string;
-  actionItems?: ActionItem[];
-  followUpMeeting?: {
-    date?: string;
-    time?: string;
-    location?: string;
-  };
-}
-
-export interface MeetingMinutesDocumentProps extends BaseDocumentProps {
-  data: MeetingMinutesData;
-}
+import { BaseDocument } from "../BaseDocument";
+import { MarkdownRenderer } from "../../../utils";
+import { mergeTheme } from "../../../themes";
+import { MeetingMinutesDocumentProps } from "./types";
 
 export const MeetingMinutesDocument: React.FC<MeetingMinutesDocumentProps> = ({
   data,
@@ -250,7 +207,7 @@ export const MeetingMinutesDocument: React.FC<MeetingMinutesDocumentProps> = ({
                       statusColor = mergedTheme.colors.secondary;
                       break;
                     default:
-                      statusColor = mergedTheme.colors.primary;
+                      statusColor = mergedTheme.colors.error;
                   }
 
                   return (
@@ -275,10 +232,9 @@ export const MeetingMinutesDocument: React.FC<MeetingMinutesDocumentProps> = ({
                       </td>
                       <td className="border border-gray-300 p-2">
                         <span
-                          className="px-2 py-1 text-xs rounded-full"
+                          className="px-2 py-1 rounded-md text-white"
                           style={{
-                            color: statusColor,
-                            backgroundColor: `${statusColor}20`,
+                            backgroundColor: statusColor,
                           }}
                         >
                           {item.status || "pending"}
@@ -306,24 +262,27 @@ export const MeetingMinutesDocument: React.FC<MeetingMinutesDocumentProps> = ({
               Follow-up Meeting
             </h2>
             <div
-              className="p-4 rounded"
+              className="p-4 rounded-md"
               style={{
-                backgroundColor: mergedTheme.documents.header.background,
+                backgroundColor: mergedTheme.documents.table.rowBackground,
               }}
             >
               {data.followUpMeeting.date && (
                 <p>
-                  <strong>Date:</strong> {data.followUpMeeting.date}
+                  <span className="font-semibold">Date: </span>
+                  {data.followUpMeeting.date}
                 </p>
               )}
               {data.followUpMeeting.time && (
                 <p>
-                  <strong>Time:</strong> {data.followUpMeeting.time}
+                  <span className="font-semibold">Time: </span>
+                  {data.followUpMeeting.time}
                 </p>
               )}
               {data.followUpMeeting.location && (
                 <p>
-                  <strong>Location:</strong> {data.followUpMeeting.location}
+                  <span className="font-semibold">Location: </span>
+                  {data.followUpMeeting.location}
                 </p>
               )}
             </div>

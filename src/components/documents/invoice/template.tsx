@@ -1,45 +1,8 @@
 import React from "react";
-import { BaseDocument, BaseDocumentProps } from "./BaseDocument";
-import { MarkdownRenderer } from "../../utils";
-import { mergeTheme } from "../../themes";
-
-export interface InvoiceItem {
-  id: string;
-  description: string;
-  quantity: number;
-  unitPrice: number;
-  amount: number;
-}
-
-export interface InvoiceData {
-  invoiceNumber: string;
-  issueDate: string;
-  dueDate: string;
-  companyDetails: {
-    name: string;
-    address: string;
-    contactInfo: string;
-    logo?: string;
-  };
-  clientDetails: {
-    name: string;
-    address: string;
-    contactInfo: string;
-  };
-  items: InvoiceItem[];
-  subtotal: number;
-  taxRate?: number;
-  taxAmount?: number;
-  discountAmount?: number;
-  total: number;
-  notes?: string;
-  termsAndConditions?: string;
-  paymentDetails?: string;
-}
-
-export interface InvoiceDocumentProps extends BaseDocumentProps {
-  data: InvoiceData;
-}
+import { BaseDocument } from "../BaseDocument";
+import { MarkdownRenderer } from "../../../utils";
+import { mergeTheme } from "../../../themes";
+import { InvoiceDocumentProps } from "./types";
 
 export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
   data,
@@ -278,17 +241,6 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
         )}
 
         {children}
-
-        {/* Footer */}
-        <div
-          className="mt-8 pt-4 text-center text-sm"
-          style={{
-            borderTop: `1px solid ${mergedTheme.colors.border}`,
-            color: mergedTheme.colors.muted,
-          }}
-        >
-          <p>Thank you for your business!</p>
-        </div>
       </div>
     </BaseDocument>
   );

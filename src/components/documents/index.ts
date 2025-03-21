@@ -1,18 +1,20 @@
 export { BaseDocument } from "./BaseDocument";
 export type { BaseDocumentProps } from "./BaseDocument";
 
-export { InvoiceDocument } from "./InvoiceDocument";
+// Invoice Document
+export { InvoiceDocument } from "./invoice/template";
 export type {
   InvoiceDocumentProps,
   InvoiceData,
   InvoiceItem,
-} from "./InvoiceDocument";
+} from "./invoice/types";
 
-export { MeetingMinutesDocument } from "./MeetingMinutesDocument";
+// Meeting Minutes Document
+export { MeetingMinutesDocument } from "./meeting-minutes/template";
 export type {
   MeetingMinutesDocumentProps,
   MeetingMinutesData,
   Participant,
   Agenda,
   ActionItem,
-} from "./MeetingMinutesDocument";
+} from "./meeting-minutes/types";
