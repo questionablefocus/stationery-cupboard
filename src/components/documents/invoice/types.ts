@@ -42,11 +42,8 @@ export interface InvoiceData {
     contactInfo?: string;
   };
   items: InvoiceItem[];
-  subtotal?: number;
   taxRate?: number;
-  taxAmount?: number;
   discountAmount?: number;
-  total: number;
   notes?: string;
   paymentDetails?: BankTransferDetails;
   currency?: string;

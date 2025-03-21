@@ -15,6 +15,24 @@ export const InvoiceTable: React.FC<InvoiceTableProps> = ({
 }) => {
   const mergedTheme = mergeTheme(theme);
 
+  // Helper function to calculate total amount for an invoice
+  const calculateTotal = (invoice: InvoiceData): number => {
+    // Calculate subtotal from items
+    const subtotal = invoice.items.reduce(
+      (sum, item) => sum + item.quantity * item.unitPrice,
+      0
+    );
+
+    // Calculate tax amount if tax rate exists
+    const taxAmount = invoice.taxRate ? (subtotal * invoice.taxRate) / 100 : 0;
+
+    // Get discount amount or default to 0
+    const discountAmount = invoice.discountAmount || 0;
+
+    // Calculate total
+    return subtotal + taxAmount - discountAmount;
+  };
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
@@ -63,6 +81,12 @@ export const InvoiceTable: React.FC<InvoiceTableProps> = ({
               statusColor = mergedTheme.colors.accent;
             }
 
+            // Calculate the total amount
+            const total = calculateTotal(invoice);
+
+            // Get the currency or default to USD
+            const currency = invoice.currency || "USD";
+
             return (
               <tr
                 key={invoice.invoiceNumber}
@@ -88,9 +112,9 @@ export const InvoiceTable: React.FC<InvoiceTableProps> = ({
                   {invoice.clientDetails.name}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm">
-                  {invoice.total.toLocaleString("en-US", {
+                  {total.toLocaleString("en-US", {
                     style: "currency",
-                    currency: "USD",
+                    currency: currency,
                   })}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm">

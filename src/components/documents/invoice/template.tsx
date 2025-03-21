@@ -12,11 +12,20 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
   const mergedTheme = mergeTheme(theme);
   const currency = data.currency || "USD";
 
-  const taxAmount =
-    data.taxAmount ||
-    (data.taxRate && (data.subtotal * data.taxRate) / 100) ||
-    0;
+  // Calculate subtotal from items
+  const subtotal = data.items.reduce(
+    (sum, item) => sum + item.quantity * item.unitPrice,
+    0
+  );
+
+  // Calculate tax amount based on tax rate
+  const taxAmount = data.taxRate ? (subtotal * data.taxRate) / 100 : 0;
+
+  // Get discount amount or default to 0
   const discountAmount = data.discountAmount || 0;
+
+  // Calculate total
+  const total = subtotal + taxAmount - discountAmount;
 
   function formatDate(dateString: string): string {
     const date = new Date(dateString);
@@ -182,7 +191,7 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                     Subtotal
                   </th>
                   <td className="pt-4 text-right text-sm font-bold text-gray-900">
-                    {formatCurrency(data.subtotal)}
+                    {formatCurrency(subtotal)}
                   </td>
                 </tr>
               )}
@@ -214,7 +223,7 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                   Total due
                 </th>
                 <td className="py-4 text-right text-xl font-bold text-gray-900">
-                  {formatCurrency(data.total)}
+                  {formatCurrency(total)}
                 </td>
               </tr>
             </tfoot>

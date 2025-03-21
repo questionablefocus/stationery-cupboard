@@ -33,9 +33,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
         amount: 200,
       },
     ],
-    subtotal: 2200,
     taxRate: 10,
-    total: 2420,
     paymentDetails: {
       bankName: "Chase Bank",
       accountName: "Acme Inc.",
@@ -87,9 +85,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
         amount: 500,
       },
     ],
-    subtotal: 5500,
     taxRate: 8.5,
-    total: 5967.5,
     paymentDetails: {
       bankName: "BNP Paribas",
       accountName: "Design Studio Co.",
@@ -140,10 +136,8 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
         amount: 1500,
       },
     ],
-    subtotal: 9500,
     taxRate: 9,
     discountAmount: 950,
-    total: 9395,
     paymentDetails: {
       bankName: "HSBC UK",
       accountName: "Tech Solutions Inc.",
@@ -186,7 +180,6 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
         amount: 1200,
       },
     ],
-    total: 4700,
     notes:
       "Thank you for your business. We value your trust and confidence in us and sincerely appreciate your loyalty.",
     paymentDetails: {
@@ -223,9 +216,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
         amount: 2000,
       },
     ],
-    subtotal: 2000,
     taxRate: 20,
-    total: 2400,
     paymentDetails: {
       bankName: "Barclays Bank",
       accountName: "British Services Ltd",
@@ -261,9 +252,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
         amount: 5000,
       },
     ],
-    subtotal: 5000,
     taxRate: 19,
-    total: 5950,
     paymentDetails: {
       bankName: "Deutsche Bank",
       accountName: "Global Solutions GmbH",
