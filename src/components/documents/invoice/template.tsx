@@ -175,15 +175,17 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
               ))}
             </tbody>
             <tfoot>
-              <tr>
-                <td colSpan={2}></td>
-                <th className="pt-4 text-right text-sm font-semibold text-gray-900">
-                  Subtotal
-                </th>
-                <td className="pt-4 text-right text-sm font-bold text-gray-900">
-                  {formatCurrency(data.subtotal)}
-                </td>
-              </tr>
+              {(data.taxRate || data.discountAmount) && (
+                <tr>
+                  <td colSpan={2}></td>
+                  <th className="pt-4 text-right text-sm font-semibold text-gray-900">
+                    Subtotal
+                  </th>
+                  <td className="pt-4 text-right text-sm font-bold text-gray-900">
+                    {formatCurrency(data.subtotal)}
+                  </td>
+                </tr>
+              )}
               {data.taxRate && (
                 <tr>
                   <td colSpan={2}></td>

@@ -186,9 +186,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
         amount: 1200,
       },
     ],
-    subtotal: 4700,
-    taxRate: 8.875,
-    total: 5117.13,
+    total: 4700,
     notes:
       "Thank you for your business. We value your trust and confidence in us and sincerely appreciate your loyalty.",
     paymentDetails: {

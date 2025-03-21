@@ -42,7 +42,7 @@ export interface InvoiceData {
     contactInfo?: string;
   };
   items: InvoiceItem[];
-  subtotal: number;
+  subtotal?: number;
   taxRate?: number;
   taxAmount?: number;
   discountAmount?: number;
