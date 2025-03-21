@@ -8,6 +8,23 @@ export interface InvoiceItem {
   amount: number;
 }
 
+export interface BankTransferDetails {
+  bankName?: string;
+  accountName?: string;
+  // US fields
+  accountNumber?: string;
+  routingNumber?: string;
+  // UK fields
+  sortCode?: string;
+  iban?: string;
+  // International fields
+  swiftCode?: string;
+  bic?: string;
+  // Additional information
+  reference?: string;
+  additionalInfo?: string;
+}
+
 export interface InvoiceData {
   invoiceNumber: string;
   issueDate: string;
@@ -31,7 +48,7 @@ export interface InvoiceData {
   total: number;
   notes?: string;
   termsAndConditions?: string;
-  paymentDetails?: string;
+  paymentDetails?: BankTransferDetails;
   currency?: string;
 }
 

@@ -3,6 +3,7 @@ import { BaseDocument } from "../BaseDocument";
 import { MarkdownRenderer } from "../../../utils";
 import { mergeTheme } from "../../../themes";
 import { InvoiceDocumentProps } from "./types";
+import { PaymentDetailsTable } from "./PaymentDetailsTable";
 
 export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
   data,
@@ -227,7 +228,12 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
             >
               Payment Details
             </h3>
-            <MarkdownRenderer content={data.paymentDetails} theme={theme} />
+            <PaymentDetailsTable
+              paymentDetails={data.paymentDetails}
+              tableHeaderBackground={
+                mergedTheme.documents.table.headerBackground
+              }
+            />
           </div>
         )}
 
