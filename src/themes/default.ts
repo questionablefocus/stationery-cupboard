@@ -40,11 +40,11 @@ export const defaultTheme: Theme = {
       color: "#1f2937",
     },
     table: {
-      headerBackground: "#f3f4f6",
+      headerBackground: "#ffffff",
       headerColor: "#1f2937",
       rowBackground: "#ffffff",
       rowColor: "#1f2937",
-      alternateRowBackground: "#f9fafb",
+      alternateRowBackground: "#ffffff",
     },
   },
 };

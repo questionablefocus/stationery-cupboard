@@ -1,7 +1,7 @@
 import React from "react";
 import { BaseDocument } from "../BaseDocument";
 import { mergeTheme } from "../../../themes";
-import { InvoiceDocumentProps } from "./types";
+import { InvoiceDocumentProps, InvoiceItem } from "./types";
 import { PaymentDetailsTable } from "./PaymentDetailsTable";
 
 export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
@@ -119,30 +119,34 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
         </div>
 
         {/* Invoice Items */}
-        <div>
-          <table className="w-full border-collapse">
+        <div className="mt-16">
+          <table className="w-full">
             <thead>
               <tr
+                className="border-b border-gray-200"
                 style={{
                   backgroundColor: mergedTheme.documents.table.headerBackground,
                 }}
               >
-                <th className="border border-gray-300 p-2 text-left">
-                  Description
+                <th className="py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
+                  Item
                 </th>
-                <th className="border border-gray-300 p-2 text-right">Qty</th>
-                <th className="border border-gray-300 p-2 text-right">
-                  Unit Price
+                <th className="py-3 text-center text-sm font-medium text-gray-500 uppercase tracking-wider w-24">
+                  Qty
                 </th>
-                <th className="border border-gray-300 p-2 text-right">
-                  Amount
+                <th className="py-3 text-right text-sm font-medium text-gray-500 uppercase tracking-wider w-32">
+                  Unit (£)
+                </th>
+                <th className="py-3 text-right text-sm font-medium text-gray-500 uppercase tracking-wider w-32">
+                  Total (£)
                 </th>
               </tr>
             </thead>
             <tbody>
-              {data.items.map((item, index) => (
+              {data.items.map((item: InvoiceItem, index: number) => (
                 <tr
-                  key={item.id}
+                  key={index}
+                  className="border-b border-gray-100"
                   style={{
                     backgroundColor:
                       index % 2 === 0
@@ -150,54 +154,70 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                         : mergedTheme.documents.table.alternateRowBackground,
                   }}
                 >
-                  <td className="border border-gray-300 p-2">
-                    {item.description}
+                  <td className="py-2">
+                    <div className="font-medium">{item.description}</div>
+                    {item.description && (
+                      <div className="text-sm text-gray-500">
+                        {item.description}
+                      </div>
+                    )}
                   </td>
-                  <td className="border border-gray-300 p-2 text-right">
-                    {item.quantity}
+                  <td className="py-2 text-center">{item.quantity}</td>
+                  <td className="py-2 text-right">
+                    {formatCurrency(item.unitPrice).replace("£", "")}
                   </td>
-                  <td className="border border-gray-300 p-2 text-right">
-                    {formatCurrency(item.unitPrice)}
-                  </td>
-                  <td className="border border-gray-300 p-2 text-right">
-                    {formatCurrency(item.amount)}
+                  <td className="py-2 text-right font-medium">
+                    {formatCurrency(item.quantity * item.unitPrice).replace(
+                      "£",
+                      ""
+                    )}
                   </td>
                 </tr>
               ))}
             </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan={2}></td>
+                <th className="pt-4 text-right text-sm font-semibold text-gray-900">
+                  Subtotal
+                </th>
+                <td className="pt-4 text-right text-sm font-bold text-gray-900">
+                  {formatCurrency(data.subtotal)}
+                </td>
+              </tr>
+              {data.taxRate && (
+                <tr>
+                  <td colSpan={2}></td>
+                  <th className="py-2 text-right text-sm font-semibold text-gray-900">
+                    Tax ({data.taxRate}%)
+                  </th>
+                  <td className="py-2 text-right text-sm font-bold text-gray-900">
+                    {formatCurrency(taxAmount)}
+                  </td>
+                </tr>
+              )}
+              {data.discountAmount && (
+                <tr>
+                  <td colSpan={2}></td>
+                  <th className="py-2 text-right text-sm font-semibold text-gray-900">
+                    Discount
+                  </th>
+                  <td className="py-2 text-right text-sm font-bold text-gray-900">
+                    {formatCurrency(discountAmount)}
+                  </td>
+                </tr>
+              )}
+              <tr>
+                <td colSpan={2}></td>
+                <th className="py-4 text-right text-base font-semibold text-gray-900">
+                  Total due
+                </th>
+                <td className="py-4 text-right text-xl font-bold text-gray-900">
+                  {formatCurrency(data.total)}
+                </td>
+              </tr>
+            </tfoot>
           </table>
-        </div>
-
-        {/* Totals */}
-        <div className="ml-auto w-64">
-          <div className="flex justify-between py-1">
-            <span>Subtotal:</span>
-            <span>{formatCurrency(data.subtotal)}</span>
-          </div>
-
-          {data.taxRate && (
-            <div className="flex justify-between py-1">
-              <span>Tax ({data.taxRate}%):</span>
-              <span>{formatCurrency(taxAmount)}</span>
-            </div>
-          )}
-
-          {data.discountAmount && (
-            <div className="flex justify-between py-1">
-              <span>Discount:</span>
-              <span>-{formatCurrency(discountAmount)}</span>
-            </div>
-          )}
-
-          <div
-            className="flex justify-between py-2 font-bold border-t-2 mt-2"
-            style={{ borderColor: mergedTheme.colors.border }}
-          >
-            <span>Total:</span>
-            <span style={{ color: mergedTheme.colors.primary }}>
-              {formatCurrency(data.total)}
-            </span>
-          </div>
         </div>
 
         {/* Notes and Payment Details */}
