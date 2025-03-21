@@ -157,7 +157,7 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                   }}
                 >
                   <td className="py-2">
-                    <div className="font-medium">{item.description}</div>
+                    <div className="font-medium">{item.name}</div>
                     {item.description && (
                       <div className="text-sm text-gray-500">
                         {item.description}

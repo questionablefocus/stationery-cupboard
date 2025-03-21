@@ -2,7 +2,8 @@ import { BaseDocumentProps } from "../BaseDocument";
 
 export interface InvoiceItem {
   id: string;
-  description: string;
+  name: string;
+  description?: string;
   quantity: number;
   unitPrice: number;
   amount: number;
@@ -32,13 +33,13 @@ export interface InvoiceData {
   companyDetails: {
     name: string;
     address: string[];
-    contactInfo: string;
+    contactInfo?: string;
     logo?: string;
   };
   clientDetails: {
     name: string;
     address: string[];
-    contactInfo: string;
+    contactInfo?: string;
   };
   items: InvoiceItem[];
   subtotal: number;

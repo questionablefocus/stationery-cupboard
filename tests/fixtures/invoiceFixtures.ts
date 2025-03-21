@@ -18,14 +18,16 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     items: [
       {
         id: "item1",
-        description: "Website Development",
+        name: "Website Development",
+        description: "Professional web development services",
         quantity: 1,
         unitPrice: 2000,
         amount: 2000,
       },
       {
         id: "item2",
-        description: "Hosting (Annual)",
+        name: "Hosting (Annual)",
+        description: "Annual web hosting package",
         quantity: 1,
         unitPrice: 200,
         amount: 200,
@@ -62,21 +64,24 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     items: [
       {
         id: "item1",
-        description: "Brand Identity Design",
+        name: "Brand Identity Design",
+        description: "Complete brand identity package",
         quantity: 1,
         unitPrice: 3500,
         amount: 3500,
       },
       {
         id: "item2",
-        description: "Logo Design",
+        name: "Logo Design",
+        description: "Professional logo design with revisions",
         quantity: 1,
         unitPrice: 1500,
         amount: 1500,
       },
       {
         id: "item3",
-        description: "Business Card Design",
+        name: "Business Card Design",
+        description: "Custom business card templates",
         quantity: 2,
         unitPrice: 250,
         amount: 500,
@@ -112,6 +117,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     items: [
       {
         id: "item1",
+        name: "IT Consulting",
         description: "IT Consulting (40 hours)",
         quantity: 40,
         unitPrice: 150,
@@ -119,14 +125,16 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
       },
       {
         id: "item2",
-        description: "Server Setup",
+        name: "Server Setup",
+        description: "Complete server configuration and deployment",
         quantity: 1,
         unitPrice: 2000,
         amount: 2000,
       },
       {
         id: "item3",
-        description: "Software Licenses",
+        name: "Software Licenses",
+        description: "Annual software licenses",
         quantity: 5,
         unitPrice: 300,
         amount: 1500,
@@ -163,6 +171,7 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     items: [
       {
         id: "item1",
+        name: "Legal Consultation",
         description: "Legal Consultation (10 hours)",
         quantity: 10,
         unitPrice: 350,
@@ -170,7 +179,8 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
       },
       {
         id: "item2",
-        description: "Document Preparation",
+        name: "Document Preparation",
+        description: "Legal document preparation and review",
         quantity: 1,
         unitPrice: 1200,
         amount: 1200,
@@ -208,7 +218,8 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     items: [
       {
         id: "item1",
-        description: "Consulting Services",
+        name: "Consulting Services",
+        description: "Business strategy consulting",
         quantity: 20,
         unitPrice: 100,
         amount: 2000,
@@ -245,7 +256,8 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     items: [
       {
         id: "item1",
-        description: "International Consulting",
+        name: "International Consulting",
+        description: "Global market entry strategy",
         quantity: 1,
         unitPrice: 5000,
         amount: 5000,
