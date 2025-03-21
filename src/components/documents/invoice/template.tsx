@@ -18,6 +18,15 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
     0;
   const discountAmount = data.discountAmount || 0;
 
+  function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }).format(date);
+  }
+
   const formatCurrency = (amount: number) => {
     return amount.toLocaleString("en-US", {
       style: "currency",
@@ -67,39 +76,46 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
           </div>
         </div>
 
-        {/* Dates */}
-        <div
-          className="grid grid-cols-2 gap-4 p-4 rounded-md"
-          style={{ backgroundColor: mergedTheme.documents.header.background }}
-        >
-          <div>
-            <p className="font-semibold">Issue Date:</p>
-            <p>{data.issueDate}</p>
+        <div className="flex flex-col md:flex-row print:flex-row justify-between mt-12">
+          <div className="mb-8 md:mb-0 print:mb-0">
+            <h3 className="text-lg font-semibold text-gray-900">
+              {data.clientDetails.name}
+            </h3>
+            <div className="mt-1 text-sm text-gray-500">
+              {data.clientDetails.address.map((line, index) => (
+                <div key={index}>{line}</div>
+              ))}
+            </div>
           </div>
-          <div>
-            <p className="font-semibold">Due Date:</p>
-            <p>{data.dueDate}</p>
-          </div>
-        </div>
 
-        {/* Client Details */}
-        <div>
-          <h3
-            className="font-semibold mb-2"
-            style={{
-              fontFamily: mergedTheme.fontFamily.heading,
-              fontSize: mergedTheme.fontSize.heading3,
-            }}
-          >
-            Bill To:
-          </h3>
-          <h4 className="font-semibold">{data.clientDetails.name}</h4>
-          <div className="whitespace-pre-line">
-            {data.clientDetails.address.map((line, index) => (
-              <p key={index}>{line}</p>
-            ))}
+          <div className="md:text-right print:text-right">
+            <table className="md:ml-auto print:ml-auto">
+              <tbody>
+                <tr>
+                  <th className="pr-4 py-1 text-left text-xs font-medium text-gray-500">
+                    Invoice reference
+                  </th>
+                  <td className="pl-4 py-1 text-xs">{data.invoiceNumber}</td>
+                </tr>
+                <tr>
+                  <th className="pr-4 py-1 text-left text-xs font-medium text-gray-500">
+                    Invoice date
+                  </th>
+                  <td className="pl-4 py-1 text-xs">
+                    {formatDate(data.issueDate)}
+                  </td>
+                </tr>
+                <tr>
+                  <th className="pr-4 py-1 text-left text-xs font-medium text-gray-500">
+                    Due date
+                  </th>
+                  <td className="pl-4 py-1 text-xs">
+                    {formatDate(data.dueDate)}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <p>{data.clientDetails.contactInfo}</p>
         </div>
 
         {/* Invoice Items */}
