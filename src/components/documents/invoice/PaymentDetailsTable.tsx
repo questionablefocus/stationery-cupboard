@@ -3,12 +3,10 @@ import { BankTransferDetails } from "./types";
 
 interface PaymentDetailsTableProps {
   paymentDetails: BankTransferDetails;
-  tableHeaderBackground: string;
 }
 
 export const renderPaymentDetailsTable = ({
   paymentDetails,
-  tableHeaderBackground,
 }: PaymentDetailsTableProps) => {
   // Define field labels
   const fieldLabels: Record<keyof BankTransferDetails, string> = {
@@ -35,12 +33,7 @@ export const renderPaymentDetailsTable = ({
         <tbody>
           {availableFields.map((field) => (
             <tr key={field}>
-              <td
-                className="pr-4 py-1 text-left text-xs font-medium text-gray-500"
-                style={{
-                  backgroundColor: tableHeaderBackground,
-                }}
-              >
+              <td className="pr-4 py-1 text-left text-xs font-medium text-gray-500">
                 {fieldLabels[field]}
               </td>
               <td className="pl-4 py-1 text-xs whitespace-nowrap">

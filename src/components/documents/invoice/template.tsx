@@ -253,12 +253,7 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
               >
                 Payment Details
               </h4>
-              <PaymentDetailsTable
-                paymentDetails={data.paymentDetails}
-                tableHeaderBackground={
-                  mergedTheme.documents.table.headerBackground
-                }
-              />
+              <PaymentDetailsTable paymentDetails={data.paymentDetails} />
             </div>
           )}
         </div>
