@@ -51,7 +51,11 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
             >
               {data.companyDetails.name}
             </h2>
-            <p className="whitespace-pre-line">{data.companyDetails.address}</p>
+            <div className="whitespace-pre-line">
+              {data.companyDetails.address.map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </div>
             <p>{data.companyDetails.contactInfo}</p>
           </div>
         </div>
@@ -83,7 +87,11 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
             Bill To:
           </h3>
           <h4 className="font-semibold">{data.clientDetails.name}</h4>
-          <p className="whitespace-pre-line">{data.clientDetails.address}</p>
+          <div className="whitespace-pre-line">
+            {data.clientDetails.address.map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+          </div>
           <p>{data.clientDetails.contactInfo}</p>
         </div>
 

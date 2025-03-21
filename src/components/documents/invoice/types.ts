@@ -14,13 +14,13 @@ export interface InvoiceData {
   dueDate: string;
   companyDetails: {
     name: string;
-    address: string;
+    address: string[];
     contactInfo: string;
     logo?: string;
   };
   clientDetails: {
     name: string;
-    address: string;
+    address: string[];
     contactInfo: string;
   };
   items: InvoiceItem[];

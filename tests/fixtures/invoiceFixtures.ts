@@ -7,12 +7,12 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     dueDate: "2023-05-15",
     companyDetails: {
       name: "Acme Inc.",
-      address: "123 Business St\nCity, State 12345",
+      address: ["123 Business St", "City, State 12345"],
       contactInfo: "info@acme.com",
     },
     clientDetails: {
       name: "Client Name",
-      address: "456 Client Avenue\nClientville, State 67890",
+      address: ["456 Client Avenue", "Clientville, State 67890"],
       contactInfo: "client@email.com",
     },
     items: [
@@ -42,13 +42,13 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     dueDate: "2023-06-15",
     companyDetails: {
       name: "Design Studio Co.",
-      address: "789 Creative Blvd\nDesign City, State 54321",
+      address: ["789 Creative Blvd", "Design City, State 54321"],
       contactInfo: "hello@designstudio.com",
       logo: "https://placehold.co/300x100/4f46e5/ffffff?text=Design+Studio",
     },
     clientDetails: {
       name: "Marketing Agency Ltd.",
-      address: "321 Agency Road\nAgencyville, State 98765",
+      address: ["321 Agency Road", "Agencyville, State 98765"],
       contactInfo: "agency@email.com",
     },
     items: [
@@ -85,12 +85,12 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     dueDate: "2023-07-15",
     companyDetails: {
       name: "Tech Solutions Inc.",
-      address: "456 Tech Avenue\nSilicon Valley, CA 94025",
+      address: ["456 Tech Avenue", "Silicon Valley, CA 94025"],
       contactInfo: "sales@techsolutions.com",
     },
     clientDetails: {
       name: "Startup Innovations LLC",
-      address: "789 Venture Road\nStartupville, CA 90210",
+      address: ["789 Venture Road", "Startupville, CA 90210"],
       contactInfo: "info@startup.com",
     },
     items: [
@@ -128,12 +128,12 @@ export const invoiceFixtures: Record<string, InvoiceData> = {
     dueDate: "2023-08-15",
     companyDetails: {
       name: "Legal Advisors LLP",
-      address: "123 Law Street\nLegal City, NY 10001",
+      address: ["123 Law Street", "Legal City, NY 10001"],
       contactInfo: "contact@legaladvisors.com",
     },
     clientDetails: {
       name: "Corporate Entity Inc.",
-      address: "456 Corporate Plaza\nBusiness City, NY 10002",
+      address: ["456 Corporate Plaza", "Business City, NY 10002"],
       contactInfo: "finance@corporate.com",
     },
     items: [
