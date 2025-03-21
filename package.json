@@ -1,0 +1,51 @@
+{
+  "name": "stationery",
+  "version": "0.1.0",
+  "description": "A collection of business document templates for React applications",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preview:dev": "vite --config vite.preview.config.ts"
+  },
+  "keywords": [
+    "stationery",
+    "business",
+    "document",
+    "template",
+    "invoice",
+    "react",
+    "tailwind"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.15",
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.0.15",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.2"
+  },
+  "dependencies": {
+    "markdown-to-jsx": "^7.7.4",
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  }
+}
