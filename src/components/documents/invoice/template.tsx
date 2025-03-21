@@ -1,6 +1,5 @@
 import React from "react";
 import { BaseDocument } from "../BaseDocument";
-import { MarkdownRenderer } from "../../../utils";
 import { mergeTheme } from "../../../themes";
 import { InvoiceDocumentProps } from "./types";
 import { PaymentDetailsTable } from "./PaymentDetailsTable";
