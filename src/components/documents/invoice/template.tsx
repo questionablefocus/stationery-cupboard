@@ -135,10 +135,10 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                   Qty
                 </th>
                 <th className="py-3 text-right text-sm font-medium text-gray-500 uppercase tracking-wider w-32">
-                  Unit (£)
+                  Unit
                 </th>
                 <th className="py-3 text-right text-sm font-medium text-gray-500 uppercase tracking-wider w-32">
-                  Total (£)
+                  Total
                 </th>
               </tr>
             </thead>
@@ -164,13 +164,10 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                   </td>
                   <td className="py-2 text-center">{item.quantity}</td>
                   <td className="py-2 text-right">
-                    {formatCurrency(item.unitPrice).replace("£", "")}
+                    {formatCurrency(item.unitPrice)}
                   </td>
                   <td className="py-2 text-right font-medium">
-                    {formatCurrency(item.quantity * item.unitPrice).replace(
-                      "£",
-                      ""
-                    )}
+                    {formatCurrency(item.quantity * item.unitPrice)}
                   </td>
                 </tr>
               ))}
@@ -243,15 +240,15 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
                 data.notes ? "md:w-1/2 print:w-1/2" : "w-full"
               } md:text-right print:text-right`}
             >
-              <h3
-                className="text-sm font-semibold text-gray-900 mb-2"
+              <h4
+                className="text-xs font-semibold text-gray-900 mb-2"
                 style={{
                   fontFamily: mergedTheme.fontFamily.heading,
                   fontSize: mergedTheme.fontSize.heading3,
                 }}
               >
                 Payment Details
-              </h3>
+              </h4>
               <PaymentDetailsTable
                 paymentDetails={data.paymentDetails}
                 tableHeaderBackground={

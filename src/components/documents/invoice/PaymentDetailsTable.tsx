@@ -30,24 +30,27 @@ export const renderPaymentDetailsTable = ({
     .map(([key]) => key as keyof BankTransferDetails);
 
   return (
-    <table className="text-xs md:ml-auto print:ml-auto">
-      <tbody>
-        {availableFields.map((field) => (
-          <tr key={field}>
-            <td
-              className="pl-4 py-1 text-xs"
-              style={{
-                backgroundColor: tableHeaderBackground,
-                width: field === "bankName" ? "30%" : undefined,
-              }}
-            >
-              {fieldLabels[field]}
-            </td>
-            <td className="pl-4 py-1 text-xs">{paymentDetails[field]}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className="inline-block md:ml-auto print:ml-auto">
+      <table className="text-xs w-auto">
+        <tbody>
+          {availableFields.map((field) => (
+            <tr key={field}>
+              <td
+                className="pr-4 py-1 text-left text-xs font-medium text-gray-500"
+                style={{
+                  backgroundColor: tableHeaderBackground,
+                }}
+              >
+                {fieldLabels[field]}
+              </td>
+              <td className="pl-4 py-1 text-xs whitespace-nowrap">
+                {paymentDetails[field]}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
