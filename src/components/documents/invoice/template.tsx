@@ -29,39 +29,38 @@ export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
     <BaseDocument theme={theme}>
       <div className="flex flex-col space-y-8">
         {/* Header */}
-        <div className="flex justify-between items-start">
-          <div>
-            <h1
-              className="text-3xl font-bold"
-              style={{
-                fontFamily: mergedTheme.fontFamily.heading,
-                fontSize: mergedTheme.fontSize.heading1,
-              }}
-            >
-              INVOICE
-            </h1>
-            <p className="text-gray-600">#{data.invoiceNumber}</p>
-          </div>
-          <div className="text-right">
-            {data.companyDetails.logo && (
+        <div className="flex flex-col md:flex-row print:flex-row justify-between items-start">
+          <h2
+            className="text-4xl font-bold text-gray-900"
+            style={{
+              fontFamily: mergedTheme.fontFamily.heading,
+              fontSize: mergedTheme.fontSize.heading1,
+            }}
+          >
+            Invoice
+          </h2>
+
+          <div className="text-right mt-4 md:mt-0 print:mt-0">
+            {data.companyDetails.logo ? (
               <img
                 src={data.companyDetails.logo}
                 alt="Company Logo"
                 className="h-16 mb-2 ml-auto"
               />
+            ) : (
+              <h3
+                className="text-lg font-semibold text-gray-900"
+                style={{
+                  fontFamily: mergedTheme.fontFamily.heading,
+                  fontSize: mergedTheme.fontSize.heading3,
+                }}
+              >
+                {data.companyDetails.name}
+              </h3>
             )}
-            <h2
-              className="text-xl font-semibold"
-              style={{
-                fontFamily: mergedTheme.fontFamily.heading,
-                fontSize: mergedTheme.fontSize.heading2,
-              }}
-            >
-              {data.companyDetails.name}
-            </h2>
-            <div className="whitespace-pre-line">
+            <div className="mt-1 text-xs text-gray-500">
               {data.companyDetails.address.map((line, index) => (
-                <p key={index}>{line}</p>
+                <div key={index}>{line}</div>
               ))}
             </div>
             <p>{data.companyDetails.contactInfo}</p>
