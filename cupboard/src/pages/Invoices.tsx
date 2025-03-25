@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Printer } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Invoice } from "stationery-cupboard";
 
 interface InvoiceData {
   id: string;
@@ -18,14 +19,10 @@ const Invoices: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Simulating fetch from API - in a real app, this would be actual data
     const fetchData = async () => {
       setLoading(true);
       try {
-        // Instead of actually fetching, we're using dummy data based on the slug
-        // This simulates loading data from JSON files
         setTimeout(() => {
-          // Simple example data for demo purposes
           if (slug === "simple") {
             setInvoiceData({
               id: "simple",
@@ -33,18 +30,21 @@ const Invoices: React.FC = () => {
               template: "simple",
               data: {
                 invoiceNumber: "INV-001",
-                date: "May 15, 2023",
+                issueDate: "May 15, 2023",
                 dueDate: "June 15, 2023",
-                company: {
+                companyDetails: {
                   name: "Acme Corporation",
-                  address: "123 Business St, Suite 100, City, Country, 12345",
-                  email: "billing@acmecorp.com",
-                  phone: "(123) 456-7890",
+                  address: [
+                    "123 Business St",
+                    "Suite 100",
+                    "City, Country, 12345",
+                  ],
+                  contactInfo: "billing@acmecorp.com | (123) 456-7890",
                 },
-                client: {
+                clientDetails: {
                   name: "Client Company Ltd.",
-                  address: "456 Client Ave, City, Country, 54321",
-                  email: "accounts@clientcompany.com",
+                  address: ["456 Client Ave", "City, Country, 54321"],
+                  contactInfo: "accounts@clientcompany.com",
                 },
                 items: [
                   {
@@ -66,10 +66,7 @@ const Invoices: React.FC = () => {
                     amount: 425,
                   },
                 ],
-                subtotal: 1625,
                 taxRate: 10,
-                taxAmount: 162.5,
-                total: 1787.5,
                 notes:
                   "Payment due within 30 days. Please make checks payable to Acme Corporation.",
               },
@@ -273,11 +270,9 @@ const Invoices: React.FC = () => {
   const renderInvoiceTemplate = () => {
     if (!invoiceData) return null;
 
-    // In a real app, this would render the actual template
-    // For this demo, we'll just display the JSON data in a styled way
     switch (invoiceData.template) {
       case "simple":
-        return renderSimpleInvoice(invoiceData.data);
+        return <Invoice data={invoiceData.data} />;
       case "detailed":
         return renderDetailedInvoice(invoiceData.data);
       case "freelance":
@@ -291,90 +286,6 @@ const Invoices: React.FC = () => {
           </div>
         );
     }
-  };
-
-  const renderSimpleInvoice = (data: any) => {
-    return (
-      <div className="template-container">
-        <div className="mb-8 text-center">
-          <h1 className="text-2xl font-bold uppercase">INVOICE</h1>
-        </div>
-
-        <div className="flex justify-between mb-8">
-          <div>
-            <h2 className="font-semibold text-lg mb-2">{data.company.name}</h2>
-            <p className="text-sm text-gray-600">{data.company.address}</p>
-            <p className="text-sm text-gray-600">{data.company.email}</p>
-            <p className="text-sm text-gray-600">{data.company.phone}</p>
-          </div>
-          <div className="text-right">
-            <p className="text-sm">
-              <span className="font-semibold">Invoice #:</span>{" "}
-              {data.invoiceNumber}
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold">Date:</span> {data.date}
-            </p>
-            <p className="text-sm">
-              <span className="font-semibold">Due Date:</span> {data.dueDate}
-            </p>
-          </div>
-        </div>
-
-        <div className="mb-8">
-          <h3 className="font-semibold mb-2">Bill To:</h3>
-          <p className="font-semibold">{data.client.name}</p>
-          <p className="text-sm text-gray-600">{data.client.address}</p>
-          <p className="text-sm text-gray-600">{data.client.email}</p>
-        </div>
-
-        <table className="w-full mb-8">
-          <thead>
-            <tr className="border-b-2 border-gray-300">
-              <th className="text-left py-2">Description</th>
-              <th className="text-right py-2">Quantity</th>
-              <th className="text-right py-2">Unit Price</th>
-              <th className="text-right py-2">Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.items.map((item: any, index: number) => (
-              <tr key={index} className="border-b border-gray-200">
-                <td className="py-3">{item.description}</td>
-                <td className="text-right py-3">{item.quantity}</td>
-                <td className="text-right py-3">
-                  ${item.unitPrice.toFixed(2)}
-                </td>
-                <td className="text-right py-3">${item.amount.toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        <div className="flex justify-end">
-          <div className="w-1/3">
-            <div className="flex justify-between py-2">
-              <span className="font-semibold">Subtotal:</span>
-              <span>${data.subtotal.toFixed(2)}</span>
-            </div>
-            <div className="flex justify-between py-2">
-              <span className="font-semibold">Tax ({data.taxRate}%):</span>
-              <span>${data.taxAmount.toFixed(2)}</span>
-            </div>
-            <div className="flex justify-between py-2 border-t-2 border-gray-300">
-              <span className="font-bold">Total:</span>
-              <span className="font-bold">${data.total.toFixed(2)}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-gray-200 text-sm text-gray-600">
-          <p>
-            <span className="font-semibold">Notes:</span> {data.notes}
-          </p>
-        </div>
-      </div>
-    );
   };
 
   const renderDetailedInvoice = (data: any) => {
