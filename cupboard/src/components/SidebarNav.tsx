@@ -1,38 +1,38 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { 
-  FileText, 
-  ClipboardList, 
-  ChevronRight, 
-  ChevronDown, 
-  Home 
+import {
+  FileText,
+  ClipboardList,
+  ChevronRight,
+  ChevronDown,
+  Home,
 } from "lucide-react";
 
 // Example data structure - this would be fetched in a real app
 const invoiceExamples = [
   { slug: "simple", title: "Simple Invoice" },
   { slug: "detailed", title: "Detailed Invoice" },
-  { slug: "freelance", title: "Freelance Invoice" }
+  { slug: "freelance", title: "Freelance Invoice" },
 ];
 
 const meetingExamples = [
   { slug: "basic", title: "Basic Minutes" },
   { slug: "corporate", title: "Corporate Minutes" },
-  { slug: "action-items", title: "Action Items" }
+  { slug: "action-items", title: "Action Items" },
 ];
 
 const SidebarNav: React.FC = () => {
   const location = useLocation();
   const [openSections, setOpenSections] = useState({
     invoices: true,
-    meetings: true
+    meetings: true,
   });
 
   const toggleSection = (section: "invoices" | "meetings") => {
-    setOpenSections(prev => ({
+    setOpenSections((prev) => ({
       ...prev,
-      [section]: !prev[section]
+      [section]: !prev[section],
     }));
   };
 
@@ -44,11 +44,13 @@ const SidebarNav: React.FC = () => {
     <div className="py-4 space-y-4">
       <div className="px-3 py-2">
         <h2 className="text-xl font-semibold mb-2">Stationery Cupboard</h2>
-        <p className="text-sm text-muted-foreground">Document templates showcase</p>
+        <p className="text-sm text-muted-foreground">
+          Document templates showcase
+        </p>
       </div>
-      
+
       <div className="px-3">
-        <Link 
+        <Link
           to="/"
           className={cn(
             "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
@@ -75,26 +77,17 @@ const SidebarNav: React.FC = () => {
             <ChevronRight size={16} />
           )}
         </div>
-        
+
         {openSections.invoices && (
           <div className="pl-4 space-y-1 animate-accordion-down">
-            <Link 
-              to="/invoices"
-              className={cn(
-                "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
-                isActive("/invoices") && "bg-accent text-accent-foreground font-medium"
-              )}
-            >
-              <span>All Invoices</span>
-            </Link>
-            
-            {invoiceExamples.map(example => (
-              <Link 
+            {invoiceExamples.map((example) => (
+              <Link
                 key={example.slug}
                 to={`/invoices/${example.slug}`}
                 className={cn(
                   "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
-                  isActive(`/invoices/${example.slug}`) && "bg-accent text-accent-foreground font-medium"
+                  isActive(`/invoices/${example.slug}`) &&
+                    "bg-accent text-accent-foreground font-medium"
                 )}
               >
                 <span>{example.title}</span>
@@ -119,26 +112,28 @@ const SidebarNav: React.FC = () => {
             <ChevronRight size={16} />
           )}
         </div>
-        
+
         {openSections.meetings && (
           <div className="pl-4 space-y-1 animate-accordion-down">
-            <Link 
+            <Link
               to="/meeting-minutes"
               className={cn(
                 "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
-                isActive("/meeting-minutes") && "bg-accent text-accent-foreground font-medium"
+                isActive("/meeting-minutes") &&
+                  "bg-accent text-accent-foreground font-medium"
               )}
             >
               <span>All Meeting Minutes</span>
             </Link>
-            
-            {meetingExamples.map(example => (
-              <Link 
+
+            {meetingExamples.map((example) => (
+              <Link
                 key={example.slug}
                 to={`/meeting-minutes/${example.slug}`}
                 className={cn(
                   "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
-                  isActive(`/meeting-minutes/${example.slug}`) && "bg-accent text-accent-foreground font-medium"
+                  isActive(`/meeting-minutes/${example.slug}`) &&
+                    "bg-accent text-accent-foreground font-medium"
                 )}
               >
                 <span>{example.title}</span>
