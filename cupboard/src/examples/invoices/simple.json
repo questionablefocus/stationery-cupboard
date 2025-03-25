@@ -1,0 +1,32 @@
+
+{
+  "id": "simple",
+  "title": "Simple Invoice",
+  "template": "simple",
+  "data": {
+    "invoiceNumber": "INV-001",
+    "date": "May 15, 2023",
+    "dueDate": "June 15, 2023",
+    "company": {
+      "name": "Acme Corporation",
+      "address": "123 Business St, Suite 100, City, Country, 12345",
+      "email": "billing@acmecorp.com",
+      "phone": "(123) 456-7890"
+    },
+    "client": {
+      "name": "Client Company Ltd.",
+      "address": "456 Client Ave, City, Country, 54321",
+      "email": "accounts@clientcompany.com"
+    },
+    "items": [
+      { "description": "Web Design Service", "quantity": 1, "unitPrice": 1000, "amount": 1000 },
+      { "description": "Hosting (Annual)", "quantity": 1, "unitPrice": 200, "amount": 200 },
+      { "description": "Support Hours", "quantity": 5, "unitPrice": 85, "amount": 425 }
+    ],
+    "subtotal": 1625,
+    "taxRate": 10,
+    "taxAmount": 162.5,
+    "total": 1787.5,
+    "notes": "Payment due within 30 days. Please make checks payable to Acme Corporation."
+  }
+}

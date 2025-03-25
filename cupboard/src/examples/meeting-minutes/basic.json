@@ -1,0 +1,79 @@
+
+{
+  "id": "basic",
+  "title": "Basic Meeting Minutes",
+  "template": "basic",
+  "data": {
+    "meetingTitle": "Weekly Team Check-in",
+    "date": "May 10, 2023",
+    "time": "10:00 AM - 11:30 AM",
+    "location": "Conference Room A",
+    "facilitator": "Jane Smith",
+    "attendees": [
+      "John Doe (Marketing)",
+      "Sarah Johnson (Product)",
+      "Michael Brown (Engineering)",
+      "Emma Wilson (Design)",
+      "Robert Garcia (Sales)"
+    ],
+    "absentees": [
+      "Lisa Chen (Finance)"
+    ],
+    "agenda": [
+      "Project status updates",
+      "Upcoming deadlines",
+      "Resource allocation",
+      "Any other business"
+    ],
+    "discussionItems": [
+      {
+        "topic": "Project status updates",
+        "notes": "Marketing campaign is on track. Product feature development is delayed by 2 days. Engineering team completed the backend API ahead of schedule. Design team needs additional resources for the UI revamp.",
+        "decisions": "Reallocate one designer from the mobile app project to help with the UI revamp."
+      },
+      {
+        "topic": "Upcoming deadlines",
+        "notes": "Product launch scheduled for June 15. All teams need to finalize their contributions by June 1 for final review.",
+        "decisions": "Each team lead will submit a detailed timeline by end of week."
+      },
+      {
+        "topic": "Resource allocation",
+        "notes": "Engineering team requests additional server resources for the new deployment. Sales team needs updated marketing materials for the Q3 sales push.",
+        "decisions": "IT will provision new servers by May 15. Marketing to prioritize sales materials for completion by May 20."
+      },
+      {
+        "topic": "Any other business",
+        "notes": "Office move planned for July discussed briefly. More details to follow in dedicated meeting next week.",
+        "decisions": "HR to send office move details and schedule follow-up meeting."
+      }
+    ],
+    "actionItems": [
+      {
+        "action": "Submit detailed project timelines",
+        "assignedTo": "All Team Leads",
+        "dueDate": "May 17, 2023"
+      },
+      {
+        "action": "Provision new servers for deployment",
+        "assignedTo": "IT Team",
+        "dueDate": "May 15, 2023"
+      },
+      {
+        "action": "Complete sales materials for Q3",
+        "assignedTo": "Marketing Team",
+        "dueDate": "May 20, 2023"
+      },
+      {
+        "action": "Send office move details",
+        "assignedTo": "HR Department",
+        "dueDate": "May 12, 2023"
+      }
+    ],
+    "nextMeeting": {
+      "date": "May 17, 2023",
+      "time": "10:00 AM",
+      "location": "Conference Room A"
+    },
+    "notes": "Minutes recorded by: Emma Wilson"
+  }
+}
