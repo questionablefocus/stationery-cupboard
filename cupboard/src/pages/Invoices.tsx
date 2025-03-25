@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Printer, Download } from "lucide-react";
+import { Printer, Download } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 interface InvoiceData {
@@ -13,7 +13,6 @@ interface InvoiceData {
 
 const Invoices: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [invoiceData, setInvoiceData] = useState<InvoiceData | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -682,10 +681,6 @@ const Invoices: React.FC = () => {
     return (
       <div className="space-y-6">
         <div className="flex items-center space-x-2">
-          <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
-          </Button>
           <Skeleton className="h-8 w-40" />
         </div>
         <Skeleton className="h-[60vh] w-full" />
@@ -696,10 +691,6 @@ const Invoices: React.FC = () => {
   if (error) {
     return (
       <div className="space-y-6">
-        <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Back
-        </Button>
         <div className="p-6 bg-destructive/10 text-destructive rounded-md">
           <p>{error}</p>
         </div>
@@ -711,10 +702,6 @@ const Invoices: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
-          <Button variant="outline" size="sm" onClick={() => navigate(-1)}>
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back
-          </Button>
           <h1 className="text-2xl font-semibold">{invoiceData?.title}</h1>
         </div>
         <div className="flex items-center space-x-2">
