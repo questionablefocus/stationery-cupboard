@@ -18,7 +18,8 @@
     "declaration": true,
     "declarationDir": "dist",
     "outDir": "dist/types",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "sourceMap": true
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "cupboard"]
