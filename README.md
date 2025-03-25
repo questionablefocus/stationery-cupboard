@@ -30,26 +30,28 @@ const MyInvoice = () => {
     dueDate: "2023-05-15",
     companyDetails: {
       name: "Your Company Name",
-      address: "123 Business St\nCity, State 12345",
+      address: ["123 Business St", "City, State 12345"],
       contactInfo: "contact@company.com",
       logo: "https://yourcompany.com/logo.png", // Optional
     },
     clientDetails: {
       name: "Client Name",
-      address: "456 Client Avenue\nClientville, State 67890",
+      address: ["456 Client Avenue", "Clientville, State 67890"],
       contactInfo: "client@email.com",
     },
     items: [
       {
         id: "item1",
-        description: "Website Development",
+        name: "Website Development",
+        description: "Custom website development services",
         quantity: 1,
         unitPrice: 2000,
         amount: 2000,
       },
       {
         id: "item2",
-        description: "Hosting (Annual)",
+        name: "Hosting",
+        description: "Annual hosting services",
         quantity: 1,
         unitPrice: 200,
         amount: 200,
@@ -59,8 +61,14 @@ const MyInvoice = () => {
     taxRate: 10,
     total: 2420,
     notes: "Thank you for your business!",
-    termsAndConditions: "Payment due within 14 days of issue.",
-    paymentDetails: "Bank Transfer\nAccount: 123456789\nRouting: 987654321",
+    paymentDetails: {
+      bankName: "Example Bank",
+      accountName: "Your Company Name",
+      accountNumber: "123456789",
+      routingNumber: "987654321",
+      reference: "INV-001",
+    },
+    currency: "USD",
   };
 
   // Optional custom theme
@@ -197,27 +205,6 @@ const MyComponent = () => {
   return <BaseDocument theme={customTheme}>Content</BaseDocument>;
 };
 ```
-
-## Development
-
-### Component Preview
-
-This package includes a preview application for testing components in different configurations:
-
-```bash
-# Run the component preview application
-npm run preview:dev
-```
-
-This will launch a development server with an interactive UI for previewing:
-
-- Document components with different data
-- Various themes
-- Table components
-
-The preview app allows for quick iteration and testing when developing new features.
-
-See the [tests/README.md](tests/README.md) file for more details on using and extending the preview application.
 
 ## License
 
