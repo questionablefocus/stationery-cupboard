@@ -14,7 +14,7 @@ export const BaseDocument: React.FC<BaseDocumentProps> = ({
 
   return (
     <div
-      className="w-full max-w-4xl mx-auto p-8 print:p-0 bg-white shadow-lg print:shadow-none"
+      className="w-full max-w-4xl mx-auto p-8 print:p-0 bg-white"
       style={{
         fontFamily: mergedTheme.fontFamily.body,
         color: mergedTheme.colors.text,

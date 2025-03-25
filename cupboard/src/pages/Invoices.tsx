@@ -606,7 +606,7 @@ const Invoices: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between no-print">
         <div className="flex items-center space-x-2">
           <h1 className="text-2xl font-semibold">{invoiceData?.title}</h1>
         </div>

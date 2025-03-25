@@ -98,10 +98,16 @@
   .page-transition {
     @apply transition-all duration-300 ease-in-out;
   }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+  }
 }
 
 @layer components {
   .template-container {
-    @apply max-w-4xl mx-auto bg-white animate-fade-in;
+    @apply max-w-4xl mx-auto bg-white animate-fade-in shadow-lg print:shadow-none;
   }
 }
