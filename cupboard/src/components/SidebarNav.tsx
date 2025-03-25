@@ -41,15 +41,8 @@ const SidebarNav: React.FC = () => {
   };
 
   return (
-    <div className="py-4 space-y-4">
-      <div className="px-3 py-2">
-        <h2 className="text-xl font-semibold mb-2">Stationery Cupboard</h2>
-        <p className="text-sm text-muted-foreground">
-          Document templates showcase
-        </p>
-      </div>
-
-      <div className="px-3">
+    <div className="py-10 space-y-4">
+      <div>
         <Link
           to="/"
           className={cn(
@@ -79,7 +72,7 @@ const SidebarNav: React.FC = () => {
         </div>
 
         {openSections.invoices && (
-          <div className="pl-4 space-y-1 animate-accordion-down">
+          <div className="pl-4 space-y-1">
             {invoiceExamples.map((example) => (
               <Link
                 key={example.slug}
@@ -114,7 +107,7 @@ const SidebarNav: React.FC = () => {
         </div>
 
         {openSections.meetings && (
-          <div className="pl-4 space-y-1 animate-accordion-down">
+          <div className="pl-4 space-y-1">
             {meetingExamples.map((example) => (
               <Link
                 key={example.slug}
