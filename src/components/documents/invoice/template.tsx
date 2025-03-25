@@ -1,10 +1,10 @@
 import React from "react";
 import { BaseDocument } from "../BaseDocument";
 import { mergeTheme } from "../../../themes";
-import { InvoiceDocumentProps, InvoiceItem } from "./types";
+import { InvoiceProps, InvoiceItem } from "./types";
 import { PaymentDetailsTable } from "./PaymentDetailsTable";
 
-export const InvoiceDocument: React.FC<InvoiceDocumentProps> = ({
+export const Invoice: React.FC<InvoiceProps> = ({
   data,
   theme = {},
   children,

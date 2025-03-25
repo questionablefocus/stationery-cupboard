@@ -40,6 +40,6 @@ export interface MeetingMinutesData {
   };
 }
 
-export interface MeetingMinutesDocumentProps extends BaseDocumentProps {
+export interface MeetingMinutesProps extends BaseDocumentProps {
   data: MeetingMinutesData;
 }

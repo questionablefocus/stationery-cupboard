@@ -2,9 +2,9 @@ import React from "react";
 import { BaseDocument } from "../BaseDocument";
 import { MarkdownRenderer } from "../../../utils";
 import { mergeTheme } from "../../../themes";
-import { MeetingMinutesDocumentProps } from "./types";
+import { MeetingMinutesProps } from "./types";
 
-export const MeetingMinutesDocument: React.FC<MeetingMinutesDocumentProps> = ({
+export const MeetingMinutes: React.FC<MeetingMinutesProps> = ({
   data,
   theme = {},
   children,

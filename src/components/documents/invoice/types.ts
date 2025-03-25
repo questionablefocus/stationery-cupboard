@@ -49,6 +49,6 @@ export interface InvoiceData {
   currency?: string;
 }
 
-export interface InvoiceDocumentProps extends BaseDocumentProps {
+export interface InvoiceProps extends BaseDocumentProps {
   data: InvoiceData;
 }
