@@ -4,18 +4,25 @@ import { resolve } from "path";
 
 export default defineConfig({
   plugins: [react()],
+  esbuild: {
+    jsx: "automatic", // Ensure JSX is properly transformed
+    jsxImportSource: "react", // Ensure React handles JSX
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
-      name: "Stationery",
+      name: "StationeryCupboard",
+      formats: ["es", "cjs"],
       fileName: (format) => `index.${format === "es" ? "esm" : format}.js`,
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: (id) =>
+        ["react", "react-dom"].includes(id) || /^react\//.test(id),
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
+          "react/jsx-runtime": "jsxRuntime",
         },
       },
     },

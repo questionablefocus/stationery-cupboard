@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "declaration": true,
     "declarationDir": "dist",
     "outDir": "dist/types",
