@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
 import Introduction from "./pages/Introduction";
-import MeetingMinutes from "./pages/MeetingMinutes";
 import InvoiceTemplate from "./pages/InvoiceTemplate";
 import MeetingMinutesTemplate from "./pages/MeetingMinutesTemplate";
 import NotFound from "./pages/NotFound";
@@ -22,7 +21,6 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Introduction />} />
             <Route path="/invoices/:slug" element={<InvoiceTemplate />} />
-            <Route path="/meeting-minutes" element={<MeetingMinutes />} />
             <Route
               path="/meeting-minutes/:slug"
               element={<MeetingMinutesTemplate />}

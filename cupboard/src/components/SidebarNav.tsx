@@ -115,17 +115,6 @@ const SidebarNav: React.FC = () => {
 
         {openSections.meetings && (
           <div className="pl-4 space-y-1 animate-accordion-down">
-            <Link
-              to="/meeting-minutes"
-              className={cn(
-                "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
-                isActive("/meeting-minutes") &&
-                  "bg-accent text-accent-foreground font-medium"
-              )}
-            >
-              <span>All Meeting Minutes</span>
-            </Link>
-
             {meetingExamples.map((example) => (
               <Link
                 key={example.slug}
