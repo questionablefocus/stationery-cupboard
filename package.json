@@ -10,8 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "vite build && tsc"
   },
   "keywords": [
     "stationery",
