@@ -39,12 +39,10 @@ const Invoices: React.FC = () => {
                     "Suite 100",
                     "City, Country, 12345",
                   ],
-                  contactInfo: "billing@acmecorp.com | (123) 456-7890",
                 },
                 clientDetails: {
                   name: "Client Company Ltd.",
                   address: ["456 Client Ave", "City, Country, 54321"],
-                  contactInfo: "accounts@clientcompany.com",
                 },
                 items: [
                   {
@@ -66,9 +64,6 @@ const Invoices: React.FC = () => {
                     amount: 425,
                   },
                 ],
-                taxRate: 10,
-                notes:
-                  "Payment due within 30 days. Please make checks payable to Acme Corporation.",
               },
             });
           } else if (slug === "detailed") {
@@ -290,7 +285,7 @@ const Invoices: React.FC = () => {
 
   const renderDetailedInvoice = (data: any) => {
     return (
-      <div className="template-container">
+      <div>
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-2xl font-bold">{data.company.name}</h1>
@@ -447,7 +442,7 @@ const Invoices: React.FC = () => {
 
   const renderFreelanceInvoice = (data: any) => {
     return (
-      <div className="template-container">
+      <div>
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold mb-1">{data.freelancer.name}</h1>
           <p className="text-md text-gray-600">{data.freelancer.profession}</p>
@@ -623,7 +618,7 @@ const Invoices: React.FC = () => {
         </div>
       </div>
 
-      {renderInvoiceTemplate()}
+      <div className="template-container">{renderInvoiceTemplate()}</div>
     </div>
   );
 };

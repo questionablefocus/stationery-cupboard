@@ -102,6 +102,6 @@
 
 @layer components {
   .template-container {
-    @apply max-w-4xl mx-auto p-8 bg-white shadow-sm rounded-lg animate-fade-in;
+    @apply max-w-4xl mx-auto bg-white animate-fade-in;
   }
 }
