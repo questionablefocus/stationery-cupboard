@@ -709,10 +709,6 @@ const Invoices: React.FC = () => {
             <Printer className="h-4 w-4 mr-2" />
             Print
           </Button>
-          <Button variant="outline" size="sm">
-            <Download className="h-4 w-4 mr-2" />
-            Download
-          </Button>
         </div>
       </div>
 
