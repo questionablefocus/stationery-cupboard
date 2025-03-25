@@ -45,9 +45,9 @@ export const Invoice: React.FC<InvoiceProps> = ({
 
   return (
     <BaseDocument theme={theme}>
-      <div>
+      <div className="relative">
         {/* Header */}
-        <div className="flex flex-col md:flex-row print:flex-row justify-between items-start">
+        <div className="flex justify-between items-start">
           <h2
             className="text-4xl font-bold text-gray-900"
             style={{
@@ -58,7 +58,7 @@ export const Invoice: React.FC<InvoiceProps> = ({
             Invoice
           </h2>
 
-          <div className="text-right mt-4 md:mt-0 print:mt-0">
+          <div className="text-right">
             {data.companyDetails.logo ? (
               <img
                 src={data.companyDetails.logo}
@@ -87,7 +87,7 @@ export const Invoice: React.FC<InvoiceProps> = ({
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row print:flex-row justify-between mt-16">
+        <div className="flex justify-between mt-16 bg-gray-100">
           <div className="mb-8 md:mb-0 print:mb-0">
             <h3 className="text-lg font-semibold text-gray-900">
               {data.clientDetails.name}
