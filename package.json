@@ -12,9 +12,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preview:dev": "vite --config vite.preview.config.ts"
+    "preview": "vite preview"
   },
   "keywords": [
     "stationery",
