@@ -1,5 +1,5 @@
 {
-  "name": "stationery",
+  "name": "stationery-cupboard",
   "version": "0.1.0",
   "description": "A collection of business document templates for React applications",
   "main": "dist/index.js",
