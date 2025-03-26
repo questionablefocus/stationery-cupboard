@@ -9,11 +9,9 @@ import {
   Home,
 } from "lucide-react";
 
-// Example data structure - this would be fetched in a real app
 const invoiceExamples = [
   { slug: "simple", title: "Simple Invoice" },
   { slug: "detailed", title: "Detailed Invoice" },
-  { slug: "freelance", title: "Freelance Invoice" },
 ];
 
 const meetingExamples = [
