@@ -45,7 +45,7 @@ export const Invoice: React.FC<InvoiceProps> = ({
 
   return (
     <BaseDocument theme={theme}>
-      <div className="relative">
+      <div>
         {/* Header */}
         <div className="flex justify-between items-start">
           <h2
@@ -87,7 +87,7 @@ export const Invoice: React.FC<InvoiceProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-between mt-16 bg-gray-100">
+        <div className="flex justify-between mt-16">
           <div className="mb-8 md:mb-0 print:mb-0">
             <h3 className="text-lg font-semibold text-gray-900">
               {data.clientDetails.name}
