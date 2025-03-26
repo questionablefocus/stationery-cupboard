@@ -22,7 +22,7 @@ const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
         </Sidebar>
 
         <div className="flex-1 flex flex-col">
-          <div className="flex items-center h-14 px-4 border-b lg:hidden no-print">
+          <div className="flex items-center h-14 px-4 border-b no-print">
             <SidebarTrigger />
             <h2 className="text-lg font-medium ml-2">Stationery Cupboard</h2>
           </div>
