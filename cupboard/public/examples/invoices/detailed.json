@@ -1,0 +1,89 @@
+{
+    "id": "detailed",
+    "title": "Detailed Invoice",
+    "template": "detailed",
+    "data": {
+        "invoiceNumber": "INV-2023-002",
+        "issueDate": "June 1, 2023",
+        "dueDate": "July 1, 2023",
+        "companyDetails": {
+            "name": "Design Studio Inc.",
+            "address": [
+                "789 Creative Blvd",
+                "Design District",
+                "Metro City, 67890"
+            ],
+            "contactInfo": {
+                "phone": "(987) 654-3210",
+                "email": "accounting@designstudio.com",
+                "website": "www.designstudio.com"
+            },
+            "logo": "https://placehold.co/100x60"
+        },
+        "clientDetails": {
+            "name": "Fashion Brand Co.",
+            "address": [
+                "321 Stylish Street",
+                "Fashion Center",
+                "Trend City, 54321"
+            ],
+            "contactInfo": {
+                "contactName": "Alex Johnson",
+                "phone": "(555) 123-4567",
+                "email": "alex@fashionbrand.com"
+            }
+        },
+        "items": [
+            {
+                "description": "UX Research & Strategy",
+                "details": "User interviews, competitive analysis, information architecture",
+                "quantity": 40,
+                "unit": "hours",
+                "unitPrice": 150,
+                "amount": 6000
+            },
+            {
+                "description": "UI Design",
+                "details": "Visual design of website, interactive prototypes",
+                "quantity": 80,
+                "unit": "hours",
+                "unitPrice": 175,
+                "amount": 14000
+            },
+            {
+                "description": "Frontend Development",
+                "details": "Responsive HTML/CSS/JS implementation",
+                "quantity": 120,
+                "unit": "hours",
+                "unitPrice": 140,
+                "amount": 16800
+            },
+            {
+                "description": "Project Management",
+                "details": "Client meetings, coordination, quality assurance",
+                "quantity": 30,
+                "unit": "hours",
+                "unitPrice": 125,
+                "amount": 3750
+            },
+            {
+                "description": "Premium Stock Photography License",
+                "details": "Commercial license for 25 stock images",
+                "quantity": 1,
+                "unit": "package",
+                "unitPrice": 750,
+                "amount": 750
+            }
+        ],
+        "taxRate": 8,
+        "discountAmount": 1500,
+        "notes": "This invoice covers Phase 1 of the project as outlined in our contract dated May 1, 2023. Phase 2 will be invoiced separately upon completion. Payment due within 30 days. Late payments subject to 2% monthly interest.",
+        "paymentDetails": {
+            "bankName": "Metro Bank",
+            "accountName": "Design Studio Inc.",
+            "accountNumber": "987654321",
+            "routingNumber": "123456789"
+        },
+        "currency": "USD"
+    }
+}

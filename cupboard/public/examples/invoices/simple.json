@@ -1,0 +1,45 @@
+{
+  "id": "simple",
+  "title": "Simple Invoice",
+  "template": "simple",
+  "data": {
+    "invoiceNumber": "INV-001",
+    "issueDate": "May 15, 2023",
+    "dueDate": "June 15, 2023",
+    "companyDetails": {
+      "name": "Acme Corporation",
+      "address": [
+        "123 Business St",
+        "Suite 100",
+        "City, Country, 12345"
+      ]
+    },
+    "clientDetails": {
+      "name": "Client Company Ltd.",
+      "address": [
+        "456 Client Ave",
+        "City, Country, 54321"
+      ]
+    },
+    "items": [
+      {
+        "description": "Web Design Service",
+        "quantity": 1,
+        "unitPrice": 1000,
+        "amount": 1000
+      },
+      {
+        "description": "Hosting (Annual)",
+        "quantity": 1,
+        "unitPrice": 200,
+        "amount": 200
+      },
+      {
+        "description": "Support Hours",
+        "quantity": 5,
+        "unitPrice": 85,
+        "amount": 425
+      }
+    ]
+  }
+}
