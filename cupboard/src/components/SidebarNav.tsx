@@ -8,6 +8,7 @@ import {
   ChevronDown,
   Home,
 } from "lucide-react";
+import { useSidebar } from "@/components/ui/sidebar";
 
 const invoiceExamples = [
   { slug: "simple", title: "Simple Invoice" },
@@ -18,6 +19,7 @@ const meetingExamples = [{ slug: "basic", title: "Basic Minutes" }];
 
 const SidebarNav: React.FC = () => {
   const location = useLocation();
+  const { setOpenMobile } = useSidebar();
   const [openSections, setOpenSections] = useState({
     invoices: true,
     meetings: true,
@@ -34,11 +36,16 @@ const SidebarNav: React.FC = () => {
     return location.pathname === path;
   };
 
+  const handleLinkClick = () => {
+    setOpenMobile(false);
+  };
+
   return (
     <div className="py-10 space-y-4">
       <div>
         <Link
           to="/"
+          onClick={handleLinkClick}
           className={cn(
             "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
             isActive("/") && "bg-accent text-accent-foreground font-medium"
@@ -71,6 +78,7 @@ const SidebarNav: React.FC = () => {
               <Link
                 key={example.slug}
                 to={`/invoices/${example.slug}`}
+                onClick={handleLinkClick}
                 className={cn(
                   "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
                   isActive(`/invoices/${example.slug}`) &&
@@ -106,6 +114,7 @@ const SidebarNav: React.FC = () => {
               <Link
                 key={example.slug}
                 to={`/meeting-minutes/${example.slug}`}
+                onClick={handleLinkClick}
                 className={cn(
                   "flex items-center gap-2 w-full rounded-md px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground transition-colors",
                   isActive(`/meeting-minutes/${example.slug}`) &&
