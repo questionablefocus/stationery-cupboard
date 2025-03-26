@@ -1,79 +1,91 @@
-
 {
   "id": "basic",
   "title": "Basic Meeting Minutes",
   "template": "basic",
   "data": {
-    "meetingTitle": "Weekly Team Check-in",
+    "title": "Weekly Team Check-in",
     "date": "May 10, 2023",
-    "time": "10:00 AM - 11:30 AM",
+    "startTime": "10:00 AM",
+    "endTime": "11:30 AM",
     "location": "Conference Room A",
-    "facilitator": "Jane Smith",
-    "attendees": [
-      "John Doe (Marketing)",
-      "Sarah Johnson (Product)",
-      "Michael Brown (Engineering)",
-      "Emma Wilson (Design)",
-      "Robert Garcia (Sales)"
+    "organizationName": "Acme Corporation",
+    "participants": [
+      {
+        "name": "John Doe",
+        "role": "Marketing"
+      },
+      {
+        "name": "Sarah Johnson",
+        "role": "Product"
+      },
+      {
+        "name": "Michael Brown",
+        "role": "Engineering"
+      },
+      {
+        "name": "Emma Wilson",
+        "role": "Design"
+      },
+      {
+        "name": "Robert Garcia",
+        "role": "Sales"
+      }
     ],
     "absentees": [
-      "Lisa Chen (Finance)"
-    ],
-    "agenda": [
-      "Project status updates",
-      "Upcoming deadlines",
-      "Resource allocation",
-      "Any other business"
-    ],
-    "discussionItems": [
       {
-        "topic": "Project status updates",
-        "notes": "Marketing campaign is on track. Product feature development is delayed by 2 days. Engineering team completed the backend API ahead of schedule. Design team needs additional resources for the UI revamp.",
+        "name": "Lisa Chen",
+        "role": "Finance"
+      }
+    ],
+    "agendaItems": [
+      {
+        "title": "Project status updates",
+        "description": "Marketing campaign is on track. Product feature development is delayed by 2 days. Engineering team completed the backend API ahead of schedule. Design team needs additional resources for the UI revamp.",
         "decisions": "Reallocate one designer from the mobile app project to help with the UI revamp."
       },
       {
-        "topic": "Upcoming deadlines",
-        "notes": "Product launch scheduled for June 15. All teams need to finalize their contributions by June 1 for final review.",
+        "title": "Upcoming deadlines",
+        "description": "Product launch scheduled for June 15. All teams need to finalize their contributions by June 1 for final review.",
         "decisions": "Each team lead will submit a detailed timeline by end of week."
       },
       {
-        "topic": "Resource allocation",
-        "notes": "Engineering team requests additional server resources for the new deployment. Sales team needs updated marketing materials for the Q3 sales push.",
+        "title": "Resource allocation",
+        "description": "Engineering team requests additional server resources for the new deployment. Sales team needs updated marketing materials for the Q3 sales push.",
         "decisions": "IT will provision new servers by May 15. Marketing to prioritize sales materials for completion by May 20."
       },
       {
-        "topic": "Any other business",
-        "notes": "Office move planned for July discussed briefly. More details to follow in dedicated meeting next week.",
+        "title": "Any other business",
+        "description": "Office move planned for July discussed briefly. More details to follow in dedicated meeting next week.",
         "decisions": "HR to send office move details and schedule follow-up meeting."
       }
     ],
+    "minutesMarkdown": "# Weekly Team Check-in Minutes\n\n## Project Status Updates\n- Marketing campaign is on track\n- Product feature development delayed by 2 days\n- Engineering team completed backend API ahead of schedule\n- Design team needs additional resources for UI revamp\n\n## Upcoming Deadlines\n- Product launch scheduled for June 15\n- All teams to finalize contributions by June 1\n\n## Resource Allocation\n- Engineering team requesting additional server resources\n- Sales team needs updated marketing materials for Q3\n\n## Any Other Business\n- Office move planned for July\n- More details to follow in dedicated meeting next week",
     "actionItems": [
       {
         "action": "Submit detailed project timelines",
-        "assignedTo": "All Team Leads",
+        "assignee": "All Team Leads",
         "dueDate": "May 17, 2023"
       },
       {
         "action": "Provision new servers for deployment",
-        "assignedTo": "IT Team",
+        "assignee": "IT Team",
         "dueDate": "May 15, 2023"
       },
       {
         "action": "Complete sales materials for Q3",
-        "assignedTo": "Marketing Team",
+        "assignee": "Marketing Team",
         "dueDate": "May 20, 2023"
       },
       {
         "action": "Send office move details",
-        "assignedTo": "HR Department",
+        "assignee": "HR Department",
         "dueDate": "May 12, 2023"
       }
     ],
-    "nextMeeting": {
+    "followUpMeeting": {
       "date": "May 17, 2023",
       "time": "10:00 AM",
       "location": "Conference Room A"
-    },
-    "notes": "Minutes recorded by: Emma Wilson"
+    }
   }
 }

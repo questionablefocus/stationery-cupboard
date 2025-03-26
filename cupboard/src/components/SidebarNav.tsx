@@ -14,11 +14,7 @@ const invoiceExamples = [
   { slug: "detailed", title: "Detailed Invoice" },
 ];
 
-const meetingExamples = [
-  { slug: "basic", title: "Basic Minutes" },
-  { slug: "corporate", title: "Corporate Minutes" },
-  { slug: "action-items", title: "Action Items" },
-];
+const meetingExamples = [{ slug: "basic", title: "Basic Minutes" }];
 
 const SidebarNav: React.FC = () => {
   const location = useLocation();

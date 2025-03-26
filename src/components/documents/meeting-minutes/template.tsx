@@ -65,7 +65,7 @@ export const MeetingMinutes: React.FC<MeetingMinutesProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {data.participants.map((participant, index) => (
               <div
-                key={index}
+                key={`participants-${index}`}
                 className="p-2 rounded"
                 style={{
                   backgroundColor:
@@ -104,7 +104,7 @@ export const MeetingMinutes: React.FC<MeetingMinutesProps> = ({
             </h2>
             <ul className="list-disc pl-5">
               {data.absentees.map((absentee, index) => (
-                <li key={index}>
+                <li key={`absentees-${index}`}>
                   <span className="font-semibold">{absentee.name}</span>
                   {absentee.role && ` (${absentee.role})`}
                   {absentee.organization && ` - ${absentee.organization}`}
@@ -128,7 +128,7 @@ export const MeetingMinutes: React.FC<MeetingMinutesProps> = ({
           </h2>
           <ol className="list-decimal pl-5">
             {data.agendaItems.map((item, index) => (
-              <li key={index} className="mb-2">
+              <li key={`agenda-${index}`} className="mb-2">
                 <span className="font-semibold">{item.title}</span>
                 {item.description && (
                   <p className="text-gray-600 ml-2">{item.description}</p>
@@ -181,7 +181,9 @@ export const MeetingMinutes: React.FC<MeetingMinutesProps> = ({
                       mergedTheme.documents.table.headerBackground,
                   }}
                 >
-                  <th className="border border-gray-300 p-2 text-left">Task</th>
+                  <th className="border border-gray-300 p-2 text-left">
+                    Action
+                  </th>
                   <th className="border border-gray-300 p-2 text-left">
                     Assignee
                   </th>
@@ -212,7 +214,7 @@ export const MeetingMinutes: React.FC<MeetingMinutesProps> = ({
 
                   return (
                     <tr
-                      key={item.id}
+                      key={`actions-${index}`}
                       style={{
                         backgroundColor:
                           index % 2 === 0
@@ -222,7 +224,7 @@ export const MeetingMinutes: React.FC<MeetingMinutesProps> = ({
                       }}
                     >
                       <td className="border border-gray-300 p-2">
-                        {item.task}
+                        {item.action}
                       </td>
                       <td className="border border-gray-300 p-2">
                         {item.assignee}

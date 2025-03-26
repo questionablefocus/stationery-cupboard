@@ -13,8 +13,7 @@ export interface Agenda {
 }
 
 export interface ActionItem {
-  id: string;
-  task: string;
+  action: string;
   assignee: string;
   dueDate?: string;
   status?: "pending" | "completed" | "in-progress" | "deferred";

@@ -12,7 +12,7 @@ interface InvoiceData {
   data: any;
 }
 
-const Invoices: React.FC = () => {
+const InvoicesPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [loading, setLoading] = useState(true);
   const [invoiceData, setInvoiceData] = useState<InvoiceData | null>(null);
@@ -86,4 +86,4 @@ const Invoices: React.FC = () => {
   );
 };
 
-export default Invoices;
+export default InvoicesPage;
