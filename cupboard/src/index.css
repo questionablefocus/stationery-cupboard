@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @plugin 'tailwindcss-animate';
+@source '../node_modules/stationery-cupboard/';
 
 @custom-variant dark (&:is(.dark *));
 
