@@ -73,31 +73,34 @@ const Invoices: React.FC = () => {
               template: "detailed",
               data: {
                 invoiceNumber: "INV-2023-002",
-                date: "June 1, 2023",
+                issueDate: "June 1, 2023",
                 dueDate: "July 1, 2023",
-                company: {
+                companyDetails: {
                   name: "Design Studio Inc.",
-                  address:
-                    "789 Creative Blvd, Design District, Metro City, 67890",
-                  email: "accounting@designstudio.com",
-                  phone: "(987) 654-3210",
-                  website: "www.designstudio.com",
-                  taxId: "TX-98765432",
+                  address: [
+                    "789 Creative Blvd",
+                    "Design District",
+                    "Metro City, 67890",
+                  ],
+                  contactInfo: {
+                    phone: "(987) 654-3210",
+                    email: "accounting@designstudio.com",
+                    website: "www.designstudio.com",
+                  },
+                  logo: "https://placehold.co/100x60",
                 },
-                client: {
+                clientDetails: {
                   name: "Fashion Brand Co.",
-                  address:
-                    "321 Stylish Street, Fashion Center, Trend City, 54321",
-                  contactPerson: "Alex Johnson",
-                  email: "alex@fashionbrand.com",
-                  phone: "(555) 123-4567",
-                  clientId: "CL-0012",
-                },
-                projectDetails: {
-                  name: "Website Redesign Project",
-                  description:
-                    "Complete overhaul of e-commerce website with new branding elements",
-                  projectId: "PRJ-2023-FB-001",
+                  address: [
+                    "321 Stylish Street",
+                    "Fashion Center",
+                    "Trend City, 54321",
+                  ],
+                  contactInfo: {
+                    contactName: "Alex Johnson",
+                    phone: "(555) 123-4567",
+                    email: "alex@fashionbrand.com",
+                  },
                 },
                 items: [
                   {
@@ -142,34 +145,17 @@ const Invoices: React.FC = () => {
                     amount: 750,
                   },
                 ],
-                subtotal: 41300,
-                discounts: [
-                  { description: "Loyal Customer Discount", amount: 1000 },
-                  { description: "Early Payment Discount", amount: 500 },
-                ],
-                totalDiscount: 1500,
-                subtotalAfterDiscount: 39800,
-                taxes: [
-                  { description: "Sales Tax (7%)", amount: 2786 },
-                  { description: "City Tax (1%)", amount: 398 },
-                ],
-                totalTax: 3184,
-                total: 42984,
-                paymentOptions: [
-                  {
-                    method: "Bank Transfer",
-                    details: "Account #: 987654321, Routing #: 123456789",
-                  },
-                  {
-                    method: "Credit Card",
-                    details: "Online payment link: designstudio.com/pay/FB0012",
-                  },
-                  { method: "Check", details: "Payable to Design Studio Inc." },
-                ],
-                terms:
-                  "Payment due within 30 days. Late payments subject to 2% monthly interest.",
+                taxRate: 8,
+                discountAmount: 1500,
                 notes:
-                  "This invoice covers Phase 1 of the project as outlined in our contract dated May 1, 2023. Phase 2 will be invoiced separately upon completion.",
+                  "This invoice covers Phase 1 of the project as outlined in our contract dated May 1, 2023. Phase 2 will be invoiced separately upon completion. Payment due within 30 days. Late payments subject to 2% monthly interest.",
+                paymentDetails: {
+                  bankName: "Metro Bank",
+                  accountName: "Design Studio Inc.",
+                  accountNumber: "987654321",
+                  routingNumber: "123456789",
+                },
+                currency: "USD",
               },
             });
           } else if (slug === "freelance") {
@@ -267,9 +253,8 @@ const Invoices: React.FC = () => {
 
     switch (invoiceData.template) {
       case "simple":
-        return <Invoice data={invoiceData.data} />;
       case "detailed":
-        return renderDetailedInvoice(invoiceData.data);
+        return <Invoice data={invoiceData.data} />;
       case "freelance":
         return renderFreelanceInvoice(invoiceData.data);
       default:

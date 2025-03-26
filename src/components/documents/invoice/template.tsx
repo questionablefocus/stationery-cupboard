@@ -82,7 +82,20 @@ export const Invoice: React.FC<InvoiceProps> = ({
               ))}
             </div>
             {data.companyDetails.contactInfo && (
-              <p>{data.companyDetails.contactInfo}</p>
+              <div className="mt-1 text-xs text-gray-500">
+                {data.companyDetails.contactInfo.contactName && (
+                  <div>{data.companyDetails.contactInfo.contactName}</div>
+                )}
+                {data.companyDetails.contactInfo.phone && (
+                  <div>{data.companyDetails.contactInfo.phone}</div>
+                )}
+                {data.companyDetails.contactInfo.email && (
+                  <div>{data.companyDetails.contactInfo.email}</div>
+                )}
+                {data.companyDetails.contactInfo.website && (
+                  <div>{data.companyDetails.contactInfo.website}</div>
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -97,6 +110,22 @@ export const Invoice: React.FC<InvoiceProps> = ({
                 <div key={index}>{line}</div>
               ))}
             </div>
+            {data.clientDetails.contactInfo && (
+              <div className="mt-1 text-sm text-gray-500">
+                {data.clientDetails.contactInfo.contactName && (
+                  <div>{data.clientDetails.contactInfo.contactName}</div>
+                )}
+                {data.clientDetails.contactInfo.phone && (
+                  <div>{data.clientDetails.contactInfo.phone}</div>
+                )}
+                {data.clientDetails.contactInfo.email && (
+                  <div>{data.clientDetails.contactInfo.email}</div>
+                )}
+                {data.clientDetails.contactInfo.website && (
+                  <div>{data.clientDetails.contactInfo.website}</div>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="md:text-right print:text-right">

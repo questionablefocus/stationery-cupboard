@@ -9,6 +9,13 @@ export interface InvoiceItem {
   amount: number;
 }
 
+export interface ContactInfo {
+  contactName?: string;
+  phone?: string;
+  email?: string;
+  website?: string;
+}
+
 export interface BankTransferDetails {
   bankName?: string;
   accountName?: string;
@@ -33,13 +40,13 @@ export interface InvoiceData {
   companyDetails: {
     name: string;
     address: string[];
-    contactInfo?: string;
+    contactInfo?: ContactInfo;
     logo?: string;
   };
   clientDetails: {
     name: string;
     address: string[];
-    contactInfo?: string;
+    contactInfo?: ContactInfo;
   };
   items: InvoiceItem[];
   taxRate?: number;
