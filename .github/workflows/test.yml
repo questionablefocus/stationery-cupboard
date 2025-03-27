@@ -17,7 +17,7 @@ jobs:
       - name: Build the component library locally
         run: |
           npm ci
-          npm build
+          npm run build
 
       - name: Install cupboard dependencies
         run: |
