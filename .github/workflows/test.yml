@@ -14,7 +14,12 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Install dependencies
+      - name: Build the component library locally
+        run: |
+          npm ci
+          npm build
+
+      - name: Install cupboard dependencies
         run: |
           cd cupboard
           npm ci
@@ -24,7 +29,7 @@ jobs:
           cd cupboard
           npx playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Run tests
         run: |
           cd cupboard
           npm run test
