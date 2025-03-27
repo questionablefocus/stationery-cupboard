@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: End-to-End Tests
 
 on:
   pull_request:
@@ -7,9 +7,6 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: cupboard
     steps:
       - uses: actions/checkout@v4
 
@@ -18,13 +15,19 @@ jobs:
           node-version: lts/*
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          cd cupboard
+          npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: |
+          cd cupboard
+          npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: |
+          cd cupboard
+          npm run test
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
