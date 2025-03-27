@@ -1,0 +1,30 @@
+name: Deprecate Package Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to deprecate (e.g., 1.0.0)"
+        required: true
+        type: string
+      message:
+        description: "Deprecation message"
+        required: true
+        type: string
+
+jobs:
+  deprecate:
+    runs-on: ubuntu-latest
+    if: github.actor == github.repository_owner
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Deprecate version
+        run: npm deprecate "@questionable-focus/stationery-cupboard@${{ inputs.version }}" "${{ inputs.message }}"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
