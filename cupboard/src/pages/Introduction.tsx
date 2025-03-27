@@ -30,7 +30,7 @@ const Introduction: React.FC = () => {
           browse and preview the available templates.
         </p>
         <div className="bg-muted p-3 rounded-md text-sm font-mono">
-          npm install stationery-cupboard
+          npm install @questionablefocus/stationery-cupboard
         </div>
       </div>
 
