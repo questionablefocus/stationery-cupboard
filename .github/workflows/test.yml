@@ -1,0 +1,42 @@
+name: End-to-End Tests
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Build the component library locally
+        run: |
+          npm ci
+          npm run build
+
+      - name: Install cupboard dependencies
+        run: |
+          cd cupboard
+          npm ci
+
+      - name: Install Playwright Browsers
+        run: |
+          cd cupboard
+          npx playwright install --with-deps
+
+      - name: Run tests
+        run: |
+          cd cupboard
+          npm run test
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: cupboard/playwright-report/
+          retention-days: 7
