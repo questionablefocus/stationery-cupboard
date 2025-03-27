@@ -1,20 +1,24 @@
 # Stationery
 
-A collection of themeable business document templates for React applications.
+A collection of themeable business document templates.
 
 ## Features
 
 - 📄 Ready-to-use document templates for common business use cases
-- 🎨 Fully customizable theming
-- 📱 Responsive design with Tailwind CSS
+- 🎨 Fully customizable theming with Tailwind CSS
 - 📊 Table components for listings
 - 🖊️ Markdown support for rich text content
+- 🖨️ Print ready
 
 ## Installation
 
 ```bash
-npm install stationery
+npm install @questionable-focus/stationery-cupboard
 ```
+
+## Preview
+
+Visit the [Stationery Cupboard](https://stationery-cupboard.questionablefocus.com/) to view the document templates.
 
 ## Usage
 
